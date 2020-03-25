@@ -1,14 +1,11 @@
 ﻿$VMBuild = "PackerTestVM"
 $ResouceGroup = "PackerGroup"
-$username = "258d2509-d846-4e42-966c-425da28d4f8c@rahamathoutlook.onmicrosoft.com"
-$pass = Get-Content "C:\GitHub\Test\Password.txt" | ConvertTo-SecureString
+$password = ConvertTo-SecureString “Mysore11!” -AsPlainText -Force
 
-$cred = New-Object -TypeName pscredential –ArgumentList "258d2509-d846-4e42-966c-425da28d4f8c@rahamathoutlook.onmicrosoft.com", $pass
+$Cred = New-Object System.Management.Automation.PSCredential (“rahamath@outlook.com”, $password) 
 
-# login non-interactive
-Login-AzAccount -Credential $cred -ServicePrincipal –TenantId "05c575ab-b007-47e7-a0ea-f8f2564e6097"
-
-
+Write-Host "Connecting to Azure portal now"
+Connect-AzAccount -Subscription 'a0cdbf8e-57ce-4f3c-a387-5a10b681ba11' -Tenant "05c575ab-b007-47e7-a0ea-f8f2564e6097" -Credential $Cred
 
 If (!(Get-AzResourceGroup -Name $ResouceGroup)) {
     New-AzResourceGroup -Name $ResouceGroup -Location "East Asia"
