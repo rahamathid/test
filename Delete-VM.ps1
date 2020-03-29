@@ -2,7 +2,8 @@
 $ResouceGroup = "PackerGroup"
 $username = "258d2509-d846-4e42-966c-425da28d4f8c@rahamathoutlook.onmicrosoft.com"
 
-$pass = Get-Content "C:\GitHub\Test\Password.txt" | ConvertTo-SecureString
+#$pass = Get-Content "C:\GitHub\Test\Password.txt" | ConvertTo-SecureString -Verbose
+$Pass = ConvertTo-SecureString “Mysore11!” -AsPlainText -Force
 
 $cred = New-Object -TypeName pscredential –ArgumentList "258d2509-d846-4e42-966c-425da28d4f8c@rahamathoutlook.onmicrosoft.com", $pass
 
@@ -16,3 +17,4 @@ Write-host "Disassociate NIC card"
 $nic = Get-AzNetworkInterface -Name $VMBuild -ResourceGroup $ResouceGroup
 $nic.IpConfigurations.publicipaddress.id = $null
 Set-AzNetworkInterface -NetworkInterface $nic | Out-Null
+Remove-AzVirtualNetwork -Name myVnet -ResourceGroupName $ResouceGroup -Force
