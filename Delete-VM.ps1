@@ -3,7 +3,7 @@ $ResouceGroup = "PackerGroup"
 $username = "258d2509-d846-4e42-966c-425da28d4f8c@rahamathoutlook.onmicrosoft.com"
 
 #$pass = Get-Content "C:\GitHub\Test\Password.txt" | ConvertTo-SecureString -Verbose
-$Pass = ConvertTo-SecureString “Mysore11!” -AsPlainText -Force
+$Pass = ConvertTo-SecureString “AEab3__nAJ7a@0D1JUqXrxx@ZH/VnGZR” -AsPlainText -Force
 
 $cred = New-Object -TypeName pscredential –ArgumentList "258d2509-d846-4e42-966c-425da28d4f8c@rahamathoutlook.onmicrosoft.com", $pass
 

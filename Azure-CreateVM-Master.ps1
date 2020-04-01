@@ -1,13 +1,13 @@
 ﻿$VMBuild = "PackerTestVM"
 $ResouceGroup = "PackerGroup"
-$username = "258d2509-d846-4e42-966c-425da28d4f8c@rahamathoutlook.onmicrosoft.com"
+$username = "4ba6c94a-5ee2-4de1-b558-c739f52a51d1@rahamathoutlook.onmicrosoft.com"
 
 #$pass = Get-Content "C:\GitHub\Test\Password.txt" | ConvertTo-SecureString -Verbose
-$Pass = ConvertTo-SecureString “Mysore11!” -AsPlainText -Force
-$cred = New-Object -TypeName pscredential –ArgumentList "258d2509-d846-4e42-966c-425da28d4f8c@rahamathoutlook.onmicrosoft.com", $pass
+$Pass = ConvertTo-SecureString “AEab3__nAJ7a@0D1JUqXrxx@ZH/VnGZR” -AsPlainText -Force
+$cred = New-Object -TypeName pscredential –ArgumentList "4ba6c94a-5ee2-4de1-b558-c739f52a51d1@rahamathoutlook.onmicrosoft.com", $pass
 
 # login non-interactive
-Login-AzAccount -Credential $cred -ServicePrincipal –TenantId "05c575ab-b007-47e7-a0ea-f8f2564e6097"
+Login-AzAccount -Credential $cred -ServicePrincipal –TenantId "05c575ab-b007-47e7-a0ea-f8f2564e6097" -Verbose
 
 
 
@@ -29,3 +29,5 @@ New-AzVm -ResourceGroupName $ResouceGroup -Name $VMBuild -Image "MyWindowsOSImag
     -Credential $Cred1 | Out-Null
 
 Write-Host "VM creation completed"
+
+
